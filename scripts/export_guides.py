@@ -268,12 +268,14 @@ if __name__ == "__main__":
     export(
         ROOT / "docs/PANDUAN_MENGAJAR.md",
         "Panduan mengajar",
-        "Agenda empat jam, langkah praktik, hasil yang diperiksa, troubleshooting, dan penilaian.",
+        "Panduan lengkap 23 tahap notebook: kode, penjelasan, hasil, "
+        "lalu modul, DVC, Docker, dan CI/CD.",
         "Panduan_Mengajar_MLOps_House_Price.pdf",
     )
     export(
         ROOT / "docs/LATIHAN_PESERTA.md",
         "Lembar latihan peserta",
-        "Tujuh latihan dengan tabel bukti, pertanyaan refleksi, dan kunci diskusi ringkas.",
+        "Praktik notebook dan server, tujuh latihan lanjutan, "
+        "tabel bukti, dan kunci diskusi pengajar.",
         "Lembar_Latihan_MLOps_House_Price.pdf",
     )

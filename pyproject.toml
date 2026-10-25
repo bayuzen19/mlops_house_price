@@ -36,7 +36,8 @@ addopts = "-ra"
 [tool.ruff]
 target-version = "py313"
 line-length = 100
-extend-exclude = ["notebooks"]
+# Teaching snippets retain the same layout as their notebook cells.
+extend-exclude = ["notebooks", "docs"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
