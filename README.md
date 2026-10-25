@@ -6,6 +6,8 @@ Repository: [bayuzen19/mlops_house_price](https://github.com/bayuzen19/mlops_hou
 
 Untuk kelas, mulai dari [Panduan Mengajar](docs/PANDUAN_MENGAJAR.md) dan [Lembar Latihan Peserta](docs/LATIHAN_PESERTA.md). Notebook memakai `configs/quick.yaml`; grid lengkap tetap tersedia di `params.yaml`.
 
+Versi cetak: [Panduan PDF](output/pdf/Panduan_Mengajar_MLOps_House_Price.pdf) dan [Lembar Latihan PDF](output/pdf/Lembar_Latihan_MLOps_House_Price.pdf). Untuk memperbarui PDF setelah mengedit Markdown, instal extra `docs` dengan `python -m pip install -e ".[docs]"`, lalu jalankan `python scripts/export_guides.py`.
+
 ## Struktur
 
 ```text

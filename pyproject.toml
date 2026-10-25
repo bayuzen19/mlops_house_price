@@ -20,6 +20,7 @@ dependencies = [
 [project.optional-dependencies]
 dvc = ["dvc==3.67.1"]
 notebook = ["ipykernel>=6,<8", "nbformat>=5.10,<6"]
+docs = ["reportlab>=4.4,<5", "pypdf>=6,<7"]
 dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.14,<1", "build>=1.2,<2"]
 
 [project.scripts]
