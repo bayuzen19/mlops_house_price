@@ -1,0 +1,12 @@
+# Add patterns of files dvc should ignore, which could improve
+# the performance. Learn more at
+# https://dvc.org/doc/user-guide/dvcignore
+# Python runtime files must not change the training dependency hash.
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+# Logged .dvc snapshots are evidence, not additional DVC stages.
+.mlflow/
+mlruns/
+mlartifacts/

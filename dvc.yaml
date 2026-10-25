@@ -1,0 +1,15 @@
+stages:
+  train:
+    cmd: python -m house_price train --config params.yaml --data data/raw/california_housing.csv --output artifacts/training
+    deps:
+      - src/house_price
+      - pyproject.toml
+      - data/raw/california_housing.csv
+    params:
+      - training
+      - mlflow
+    outs:
+      - artifacts/training/model
+      - artifacts/training/run.json
+    metrics:
+      - artifacts/training/metrics.json
