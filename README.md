@@ -8,6 +8,26 @@ Untuk kelas, mulai dari [Panduan Mengajar](docs/PANDUAN_MENGAJAR.md) dan [Lembar
 
 Versi cetak: [Panduan PDF](output/pdf/Panduan_Mengajar_MLOps_House_Price.pdf) dan [Lembar Latihan PDF](output/pdf/Lembar_Latihan_MLOps_House_Price.pdf). Untuk memperbarui PDF setelah mengedit Markdown, instal extra `docs` dengan `python -m pip install -e ".[docs]"`, lalu jalankan `python scripts/export_guides.py`.
 
+## Pilih notebook sesuai tujuan belajar
+
+- [experiments_all_in_one.ipynb](notebooks/experiments_all_in_one.ipynb): mulai dari awal, seluruh kode ada di notebook; 23 tahap dari setup, Git/DVC, training, MLflow, hingga load model dan prediksi. Tidak mengimpor modul `house_price`.
+- [experiments.ipynb](notebooks/experiments.ipynb): memakai modul `src/house_price` untuk memperlihatkan struktur proyek yang dapat dites dan dijalankan melalui CLI.
+
+Untuk belajar dari nol, buka notebook **all-in-one**, pilih kernel Python 3.13 dari `.venv`, lalu jalankan cell berurutan. Mode cepat aktif secara default. File notebook yang lama tetap tersedia.
+
+Paket ZIP untuk peserta berisi kode dan konfigurasi tanpa dokumentasi PDF, environment, cache, dataset, atau model. Baca `MULAI_DARI_ZIP.md` setelah ekstraksi; dataset publik disiapkan dengan pemeriksaan checksum. Buat ulang ZIP dengan `python scripts/package_project.py`.
+
+## Server MLflow untuk kedua notebook
+
+Jalankan di terminal PowerShell terpisah dari root proyek **sebelum Run All**:
+
+```powershell
+New-Item -ItemType Directory -Force .mlflow/server
+.\.venv\Scripts\python.exe -m mlflow server --host 127.0.0.1 --port 5000 --backend-store-uri sqlite:///.mlflow/server/mlflow.db --artifacts-destination .mlflow/server/artifacts --serve-artifacts
+```
+
+Buka [MLflow lokal](http://127.0.0.1:5000), lalu biarkan terminal server berjalan. Kedua notebook mengirim run dan model ke alamat tersebut. Untuk CLI tambahkan `--tracking-uri http://127.0.0.1:5000` pada perintah training. Default CLI tanpa argumen tetap menyediakan SQLite lokal untuk mode offline. Server menyimpan riwayat di `.mlflow/server`, terpisah dari database lokal lama.
+
 ## Struktur
 
 ```text
@@ -19,6 +39,7 @@ src/house_price/
   predict.py      Load model dan prediksi
   cli.py          Perintah prepare-data, train, predict
 notebooks/experiments.ipynb
+notebooks/experiments_all_in_one.ipynb
 tests/            Pengujian data, DVC, training, dan CLI
 scripts/          Validasi notebook dan pengujian container
 params.yaml       Konfigurasi training
